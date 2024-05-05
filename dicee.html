@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Dicee</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Indie+Flower|Lobster"
+      rel="stylesheet"
+    />
+  </head>
+  <body onload="play()">
+    <div class="container">
+      <h1>Refresh Me</h1>
+
+      <div class="dice">
+        <p>Player 1</p>
+        <img class="img1" src="" />
+      </div>
+
+      <div class="dice">
+        <p>Player 2</p>
+        <img class="img2" src="" />
+      </div>
+    </div>
+
+    <footer>www 🎲 App Brewery 🎲 com</footer>
+    <script>
+      function play() {
+        var image = ["dice1", "dice2", "dice3", "dice4", "dice5", "dice6"];
+        var rand1 = Math.floor(Math.random() * image.length);
+        var rand2 = Math.floor(Math.random() * image.length);
+        document.querySelector(".img1").setAttribute("src", "./images/" + image[rand1] + ".png");
+        document.querySelector(".img2").setAttribute("src", "./images/" + image[rand2] + ".png");
+        if(rand1>rand2){
+          document.querySelector(".container h1").textContent = "Player 1 wins";
+        }
+        else if(rand2>rand1){
+          document.querySelector(".container h1").textContent = "Player 2 wins";
+        }
+        else{
+          document.querySelector(".container h1").textContent = "Draw!";
+        }
+        console.log("rand1:", rand1);
+    console.log("rand2:", rand2);
+}
+
+    </script>
+  </body>
+</html>
